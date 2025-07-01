@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style2.css" />
+    <title>Product</title>
+  </head>
+  <body>
+    <div class="back">
+      <a href="./index.html"><button>Go Home</button></a>
+    </div>
+    <div class="main">
+      <div class="pro-img">
+        <img src="" alt="" id="img" />
+      </div>
+      <div class="pro-info">
+        <div class="cate">cate</div>
+        <div class="title">title</div>
+        <div class="price">
+          <span class="dis-price">98$</span> <span class="act-price"></span>
+          <span>& Free Shipping</span>
+        </div>
+        <div class="desc">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia,
+          autem culpa? Quibusdam optio modi aut fugiat dolores, illum velit
+          asperiores labore quasi? Eius totam delectus placeat atque earum,
+          repellat cumque.
+        </div>
+        <div class="rate">⭐⭐⭐⭐⭐</div>
+        <div class="count">In Stock: <span class="stock">69</span></div>
+        <button class="btn">Add to carts</button>
+      </div>
+    </div>
+    <script>
+      function calStars(rating) {
+        let fullstar = Math.floor(rating);
+        let halfstar = fullstar % 1 >= 0.5 ? 1 : 0;
+        let emptystar = 5 - fullstar - halfstar;
+        let stars = "";
+        for (let i = 0; i < fullstar; i++) {
+          stars += "★";
+        }
+        if (halfstar) {
+          stars += "⯪";
+        }
+        for (let i = 0; i < emptystar; i++) {
+          stars += "☆";
+        }
+        return stars;
+      }
+      let params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+      fetch(`https://fakestoreapi.com/products/${id}`)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          settingValues(data);
+        });
+      function settingValues(data) {
+        document.querySelector(".title").innerHTML = data["title"];
+        document.querySelector(".cate").innerHTML = data["category"];
+        document.querySelector(".act-price").innerHTML = data["price"] + "$";
+        document.querySelector(".desc").innerHTML = data["description"];
+        document.querySelector(".rate").innerHTML = calStars(data["rating"]["rate"]);
+        document.querySelector(".stock").innerHTML = data["rating"]["count"];
+        document.querySelector(".dis-price").innerHTML = data["price"] - 3;
+        document.querySelector("#img").src = data["image"];
+      }
+    </script>
+  </body>
+</html>
