@@ -29,11 +29,9 @@ fetch("https://fakestoreapi.com/products")
   })
   .then((data) => {
     displays(data);
-    console.log(data[0]);
     goToProduct()
     calCount()
   });
-console.log(products);
 function calStars(rating) {
   let fullstar = Math.floor(rating);
   let halfstar = fullstar % 1 >= 0.5 ? 1 : 0;
