@@ -4,10 +4,10 @@
   font-family: sans-serif;
   box-sizing: border-box;
   user-select: none;
+  scroll-behavior: smooth;
 }
 body{
   background-color: #f9fafb;
-scroll-behavior: smooth;
 }
 .logo{
   width: 50px ;
@@ -376,17 +376,27 @@ scroll-behavior: smooth;
 }
 @media (max-width:600px) {
   .logo{
-  width: 40px ;
+  width: 35px ;
 }
 .nav {
-  padding: 10px 20px;
+  padding: 5px 20px;
 
+}
+.discount {
+  font-size: 16px;
 }
 .links {
   display: none;
 }
 .hero {
   margin-bottom: 10px;
+  /* height: 300px; */
+}
+.hero img{
+  width: 100%;
+  object-fit: cover;
+
+  height: 300px;
 }
 .lines{
     position: absolute;
@@ -405,12 +415,12 @@ scroll-behavior: smooth;
 }
 .sec-line{
     width: 90%;
-    font-size: 18px;
+    font-size: 14px;
     text-align: left;
 
 }
 .btn{
-    padding: 8px 16px;
+    padding: 6px 12px;
     font-size: 14px;
     border-radius: 8px;
 }
@@ -426,7 +436,7 @@ scroll-behavior: smooth;
   margin-bottom: 20px;
 }
 .product-box {
-  width: 40%;
+  width: 45%;
   min-height: 150px;
   
 }
@@ -461,6 +471,7 @@ scroll-behavior: smooth;
 }
 .product-box .price .dis-price{
     color: grey;
+    font-size: 16px;
     text-decoration: line-through;
 }
 .product-box .price .act-price{
@@ -471,6 +482,9 @@ scroll-behavior: smooth;
   padding: 10px 10px;
   margin-bottom: 20px;
 }
+.service{
+  font-size: 18px;
+}
 .sub-sec {
   gap: 5px 0px;
   padding: 10px;
@@ -478,14 +492,10 @@ scroll-behavior: smooth;
 .sub-sec .icon {
   width: 50px;
   height: 50px;
-  font-size: 26px;
+  font-size: 22px;
 }
 .nav-btm {
   padding: 10px 20;
-}
-.rights{
-    padding: 10px 0px;
-    font-size: 18px;
 }
 .contact{
     flex-direction: column;
@@ -528,5 +538,8 @@ scroll-behavior: smooth;
 }
 .contact-links{
   display: none;
+}
+.rights{
+  font-size: 16px;
 }
 }
